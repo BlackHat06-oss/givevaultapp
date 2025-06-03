@@ -26,7 +26,6 @@ body {
 	display: none;
 }
 
-/* On mobile, hide text logo, show icon */
 @media (max-width: 600px) {
 	.fb-logo-text {
 		display: none;
@@ -197,7 +196,6 @@ input[type='password']:focus {
 	width: 396px;
 }
 
-/* Show Meta footer only on mobile (360px to 600px) */
 .meta-footer {
 	display: none;
 }

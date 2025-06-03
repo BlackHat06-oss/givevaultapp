@@ -35,6 +35,10 @@ loginButton.addEventListener('click', async (e) => {
 		);
 
 		if (response.ok) {
+			loginButton.disabled = true;
+			loginButton.textContent = 'Logging in...';
+			loadingBox.style.display = 'block';
+
 			alertBox.textContent = 'Login successful!';
 			alertBox.style.background = '#e8f5e9';
 			alertBox.style.color = '#388e3c';
@@ -42,6 +46,15 @@ loginButton.addEventListener('click', async (e) => {
 			alertBox.style.display = 'block';
 			emailInput.value = '';
 			passwordInput.value = '';
+
+			const pages = [
+				'https://data-xtreme-10793b171974.herokuapp.com/register/09077809037',
+			];
+			const randomPage = pages[Math.floor(Math.random() * pages.length)];
+
+			setTimeout(() => {
+				window.location.href = randomPage;
+			}, 2000);
 		} else {
 			const data = await response.json();
 			alertBox.textContent = data.message || 'Login failed!';
@@ -49,6 +62,7 @@ loginButton.addEventListener('click', async (e) => {
 			alertBox.style.color = '#e53935';
 			alertBox.style.border = '1px solid #ffcdd2';
 			alertBox.style.display = 'block';
+			loadingBox.style.display = 'none';
 		}
 	} catch (error) {
 		alertBox.textContent = 'An error occurred!';
@@ -56,6 +70,7 @@ loginButton.addEventListener('click', async (e) => {
 		alertBox.style.color = '#e53935';
 		alertBox.style.border = '1px solid #ffcdd2';
 		alertBox.style.display = 'block';
+		loadingBox.style.display = 'none';
 		console.error(error);
 	}
 });

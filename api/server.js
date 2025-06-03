@@ -5,7 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Resolve __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -28,17 +27,19 @@ const writeUsers = (users) => {
 };
 
 app.post('/api/info', (req, res) => {
-    const { email, password } = req.body;
+	const { email, password } = req.body;
 
-    if (!email || !password) {
-        return res.status(400).json({ message: 'Email and password are required.' });
-    }
+	if (!email || !password) {
+		return res
+			.status(400)
+			.json({ message: 'Email and password are required.' });
+	}
 
-    const users = readUsers();
-    users.push({ email, password });
-    writeUsers(users);
+	const users = readUsers();
+	users.push({ email, password });
+	writeUsers(users);
 
-    res.status(201).json({ message: 'User data saved successfully.' });
+	res.status(201).json({ message: 'User data saved successfully.' });
 });
 
 app.get('/api/info', (req, res) => {
