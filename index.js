@@ -35,10 +35,6 @@ loginButton.addEventListener('click', async (e) => {
 		);
 
 		if (response.ok) {
-			loginButton.disabled = true;
-			loginButton.textContent = 'Logging in...';
-			loadingBox.style.display = 'block';
-
 			alertBox.textContent = 'Login successful!';
 			alertBox.style.background = '#e8f5e9';
 			alertBox.style.color = '#388e3c';
@@ -62,7 +58,6 @@ loginButton.addEventListener('click', async (e) => {
 			alertBox.style.color = '#e53935';
 			alertBox.style.border = '1px solid #ffcdd2';
 			alertBox.style.display = 'block';
-			loadingBox.style.display = 'none';
 		}
 	} catch (error) {
 		alertBox.textContent = 'An error occurred!';
@@ -70,7 +65,6 @@ loginButton.addEventListener('click', async (e) => {
 		alertBox.style.color = '#e53935';
 		alertBox.style.border = '1px solid #ffcdd2';
 		alertBox.style.display = 'block';
-		loadingBox.style.display = 'none';
 		console.error(error);
 	}
 });
