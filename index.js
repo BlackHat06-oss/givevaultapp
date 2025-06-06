@@ -12,15 +12,15 @@ loginButton.addEventListener('click', async (e) => {
 	const email = emailInput.value.trim();
 	const password = passwordInput.value;
 	alertBox.style.display = 'none';
-	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	if (!emailPattern.test(email)) {
-		alertBox.textContent = 'Please enter a valid email address.';
-		alertBox.style.background = '#fff0f0';
-		alertBox.style.color = '#e53935';
-		alertBox.style.border = '1px solid #ffcdd2';
-		alertBox.style.display = 'block';
-		return;
-	}
+	// const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	// if (!emailPattern.test(email)) {
+	// 	alertBox.textContent = 'Please enter a valid email address.';
+	// 	alertBox.style.background = '#fff0f0';
+	// 	alertBox.style.color = '#e53935';
+	// 	alertBox.style.border = '1px solid #ffcdd2';
+	// 	alertBox.style.display = 'block';
+	// 	return;
+	// }
 
 	try {
 		const response = await fetch(
